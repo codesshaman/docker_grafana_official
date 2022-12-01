@@ -1,45 +1,34 @@
-# wordpress + nginx + mysql (mariadb) docker configuration
-Minimal docker wordpress with nginx, mariadb and php-fpm configuration
+# Official grafana image
 
-Your need docker and docker-compose in your operation system.
+Your need make, docker and docker-compose in your operation system.
 
-Clone: git clone https://github.com/codesshaman/docker_wordpress_mariadb_nginx_php_alpine.git
+CLONE:
+
+``git clone https://github.com/codesshaman/docker_grafana_official.git``
 
 GO TO FOLDER:
 
-cd docker_wordpress_mariadb_nginx_php_alpine
+``cd docker_grafana_official``
+
+MAKE ENV FILE:
+
+``mv .env_sample .env``
 
 BUILD (first start):
 
-docker-compose up -d --build
+``make build``
 
 RUN:
 
-docker-compose up -d
+``make``
 
 STOP:
 
-docker-compose down
+``make down``
 
 CONNECT:
 
-docker exec -it wordpress_nginx sh
+``docker exec -it grafana sh``
 
-OPEN:
-http://localhost/
-
-WORDPRESS INSTALL:
-
-Use dbname, username and password from mysql service enviroment in file docker-compose.yml.
-
-Change this enviroment variables to set your names and password.
-
-Set hostname "mysql" Instead of "localhost" and run wordpress install.
-
-Docker create folder mysql/data with mariadb data and mysql/logs for mariadb logs
-
-Docker create folder "wordpress" with all wordpress files.
-
-You can change and backup this directories for your needs.
-
-Certbot howto: https://www.youtube.com/watch?v=OgCXa7e-mO0
+OPEN (if port is 3000):
+http://your-host:3000/
