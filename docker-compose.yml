@@ -1,0 +1,11 @@
+services:
+  grafana:
+    image: grafana/grafana-oss:main
+    volumes:
+      - ./wordpress:/var/www/html
+      - ./nginx/conf.d:/etc/nginx/conf.d/
+    ports:
+      - "3000:3000"
+    tty:  true
+    restart: unless-stopped
+    container_name: grafana
